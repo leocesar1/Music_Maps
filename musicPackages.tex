@@ -1,0 +1,205 @@
+\usepackage[brazil]{babel}
+\usepackage[sfdefault]{GoSans}
+\usepackage[T1]{fontenc}
+
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{ifthen}
+
+
+% Pesquisar sobre leadsheets latex
+\usepackage[full]{leadsheets}
+\setleadsheets{chord-cs =\bfseries}
+% configurar página
+\usepackage[bottom=1cm,top=1cm,left=1cm,right=1cm]{geometry}
+
+% configurar tamanho das letras
+% \renewcommand{\normalsize}{\fontsize{11}{16}\selectfont}
+
+% configurar seções
+\usepackage{xcolor}
+\usepackage{titlesec}    
+    \setcounter{secnumdepth}{0}
+    % \setcounter{subsecnumdepth}{0}
+    \titleformat{\section}{\huge\bfseries}{\thesection}{1em}{}
+    \titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+    \titleformat{\subsection}{\small\color{gray}}{\thesubsection}{1em}{}
+
+% Box modelo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{multicol}
+\usepackage[xparse, skins, breakable]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows,positioning,fit,calc,}
+\usepackage{pgf}
+\usepackage{varwidth}
+
+\def \ifempty#1{\def\temp{#1} \ifx\temp\empty }
+
+\def \mymacro#1{\ifempty{#1} \else \node[circle,
+fill=white,
+inner sep=0pt,
+draw=black,
+minimum size=.45cm,
+ultra thick,
+align=center,
+text=black,
+font=\sffamily\bfseries
+] at (0.35,0.35) {\tiny#1}; \fi }
+
+\newcommand{\sequence}[2]{
+  \begin{tikzpicture}
+    \node[circle,
+    inner sep=0pt,
+    minimum size=.9cm,
+    fill=black,
+    draw=black,
+    baseline = (current bounding box.center), %anchor = north,
+    ultra thick,
+    align=center,
+    text=white,
+    text width=.7cm,
+    % label=right:{\color{black}{\large #1}},
+    font=\sffamily\bfseries\small
+    ] {\ifthenelse{\equal{#1}{V1}}
+        {V}
+        {\ifthenelse{\equal{#1}{R1}}
+            {R}
+            {\ifthenelse{\equal{#1}{It1}}
+                {It}
+                {#1}
+                }}};
+    \mymacro{#2}
+  \end{tikzpicture}
+  }
+
+\newtcolorbox{descriptionBox}[2][]{
+    colback=white,
+    colframe=black!35!white,
+    fonttitle=\bfseries,
+    enhanced jigsaw,
+    vfill before first, 
+    pad at break=1mm,
+    breakable,
+    opacityback=1,
+    opacitybacktitle=0,
+    center title,
+    varwidth boxed title*=-4cm,
+    % tikznode boxed title,
+    % minipage boxed title*=-7cm,
+    boxed title style = {%width=3cm,
+    colback=white,
+    halign=center,valign=center,
+    % colframe=white!100!black,
+     boxrule=0mm,
+     colframe=white,
+    %  borderline={0.5mm}{0mm}{white!100!black},
+    },
+    attach boxed title to top left={yshift=-5.mm, xshift=2mm, yshifttext=-4mm},
+    title={
+      
+      \begin{tikzpicture}
+        \node[circle,
+         fill=black,
+         draw=black,
+         inner sep=0pt,
+         minimum size=.6cm,
+         baseline = (current bounding box.center), %anchor = north,
+         ultra thick,
+         align=center,
+         text=white,
+         text width=.45cm,
+        %  text height = .45cm,
+         label=right:{\color{black}{#1}},
+         font=\sffamily\bfseries
+         ] (0,0) {\scriptsize#2};
+    \end{tikzpicture}} }
+
+
+    \newcommand{\makepage}{
+      \pagestyle{empty}
+      \section{\href{\link}{\music}}
+      \ifempty{\autor} 
+      \else 
+        \subsection{
+          \autor 
+        } 
+      \fi
+      
+      
+      \hfill
+      \begin{minipage}{5cm}
+          \begin{center}
+            {\small
+              \color{gray}
+              Tom: \tom \\
+              Andamento: \bpm\, \compasso}
+          \end{center}
+      \end{minipage}
+      
+      \vspace{.3cm}
+    }
+
+    \newcommand{\makedescription}{
+        \begin{multicols}{2}
+            \ifthenelse{\equal{\introducao}{}}{}{
+            \begin{descriptionBox}[Introdução]{I}
+                \introducao
+            \end{descriptionBox}}
+            
+            \ifthenelse{\equal{\versoOne}{}}{}{
+            \begin{descriptionBox}[Verso]{V}
+              \versoOne
+            \end{descriptionBox}}
+
+            \ifthenelse{\equal{\versoTwo}{}}{}{
+            \begin{descriptionBox}[Verso 2]{V2}
+              \versoTwo
+            \end{descriptionBox}}
+
+            \ifthenelse{\equal{\versoThree}{}}{}{
+            \begin{descriptionBox}[Verso 3]{V3}
+              \versoThree
+            \end{descriptionBox}}
+        
+            \ifthenelse{\equal{\refraoOne}{}}{}{
+            \begin{descriptionBox}[Refrão]{R}
+              \refraoOne
+            \end{descriptionBox}}
+
+            \ifthenelse{\equal{\refraoTwo}{}}{}{
+            \begin{descriptionBox}[Refrão 2]{R2}
+              \refraoTwo
+            \end{descriptionBox}}
+        
+            \ifthenelse{\equal{\refraoThree}{}}{}{
+            \begin{descriptionBox}[Refrão 3]{R3}
+              \refraoThree
+            \end{descriptionBox}}
+
+            \ifthenelse{\equal{\ponte}{}}{}{
+            \begin{descriptionBox}[Ponte]{P}
+              \ponte
+            \end{descriptionBox}}
+
+            \ifthenelse{\equal{\instrumentalOne}{}}{}{
+            \begin{descriptionBox}[Instrumental]{It}
+              \instrumentalOne
+            \end{descriptionBox}}
+            
+            \ifthenelse{\equal{\instrumentalTwo}{}}{}{
+            \begin{descriptionBox}[Instrumental 2]{It2}
+              \instrumentalTwo
+            \end{descriptionBox}}
+
+            \ifthenelse{\equal{\instrumentalThree}{}}{}{
+            \begin{descriptionBox}[Instrumental 3]{It3}
+              \instrumentalThree
+            \end{descriptionBox}}
+
+            \ifthenelse{\equal{\fim}{}}{}{
+            \begin{descriptionBox}[Fim]{F}
+              \fim
+            \end{descriptionBox}}
+        \end{multicols}
+
+    }

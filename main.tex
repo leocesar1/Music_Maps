@@ -1,0 +1,86 @@
+\documentclass[a4paper, 12pt]{article}
+\include{musicPackages}
+
+%%%% Dados da música %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\music}{Há um lugar}
+\newcommand{\autor}{Heloísa Rosa}
+\newcommand{\link}{https://youtu.be/mUubQBy5OVY}
+
+\newcommand{\tom}{G}
+\newcommand{\compasso}{4/4}
+\newcommand{\bpm}{68}
+
+%%% Dados da música %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\introducao}{
+\writechord{C9} \writechord{G}
+}
+\newcommand{\versoOne}{
+    Há um lu\chord{C9}gar de descanso em Ti\\
+    Há um lu\chord{G}gar de refrigério em Ti\\
+    Há um lu\chord{C9}gar onde a ver\chord{D9}dade rei\chord{Em7}na \\ 
+    Esse lug\chord{C9}ar é no Se\chord{G}nhor\\
+  
+    Há um lu\chord{C9}gar onde as pessoas não me influenciam\\
+    Há um lu\chord{G}gar onde eu ouço teu Espírito\\
+    Há um lu\chord{C9}gar de vi\chord{D9}tória em meio à \chord{Em7}guerra\\
+    Esse lu\chord{C9}gar é no Se\chord{G}nhor  
+  }
+\newcommand{\versoTwo}{Há um lu\chord{C9}gar de descanso em Ti\\
+Há um lu\chord{G}gar de refrigério em Ti\\
+Há um lu\chord{C9}gar onde a ver\chord{D9}dade rei\chord{Em7}na\\
+
+Esse lug\chord{C9}ar é no Se\chord{G}nhor\\
+
+Há um lu\chord{C9}gar onde as pessoas não me influenciam\\
+Há um lu\chord{G}gar onde eu ouço teu Espírito\\
+Há um lu\chord{C9}gar de vi\chord{D9}tória em meio à \chord{Em7}guerra\\
+Esse lu\chord{C9}gar é no Se\chord{G}nhor  }
+\newcommand{\versoThree}{}
+\newcommand{\refraoOne}{
+  Esse lugar é no Se\chord{C9}nhor\\
+
+  Esse lugar é no Se\chord{G/B}nhor\\
+
+  Esse lugar é no Se\chord{C9}nhor\\
+
+  Esse lugar é no Se\chord{G}nhor
+}
+
+\newcommand{\refraoTwo}{}
+\newcommand{\refraoThree}{}
+\newcommand{\ponte}{Tu és \chord{C9}tudo o que eu preciso, Jesus!\\
+
+Tu és \chord{G/B}tudo o que eu preciso, Jesus!\\
+
+Tu és \chord{Am7}tudo o que eu preciso, Je\chord{G}sus!
+}
+\newcommand{\instrumentalOne}{
+  \writechord{C9} \writechord{G} 
+}
+\newcommand{\instrumentalTwo}{}
+\newcommand{\instrumentalThree}{}
+\newcommand{\fim}{\writechord{C9}}
+
+%%%% Partes da música %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\makepage
+
+% É necessário definir a sequência %%%%%%%%%
+% \sequence{<parte da música>}{<repetições>}
+\sequence{I}{2}
+\sequence{V1}{}
+\sequence{R1}{}
+\sequence{It}{2}
+\sequence{V2}{}
+\sequence{R1}{}
+\sequence{P}{2}
+\sequence{It}{2}
+\sequence{R1}{}
+\sequence{It}{2}
+\sequence{F}{}
+
+\makedescription
+
+\end{document}
