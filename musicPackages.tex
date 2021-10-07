@@ -1,15 +1,260 @@
 \usepackage[brazil]{babel}
-\usepackage[sfdefault]{GoSans}
-\usepackage[T1]{fontenc}
+% \usepackage[sfdefault]{GoSans}
+\usepackage[sfdefault,condensed]{cabin}
+% \usepackage[T1]{fontenc}
 
-\usepackage[hidelinks]{hyperref}
+% \usepackage[hidelinks]{hyperref}
 
 \usepackage{ifthen}
 
 
 % Pesquisar sobre leadsheets latex
-\usepackage[full]{leadsheets}
-\setleadsheets{chord-cs =\bfseries}
+\usepackage{leadsheets}
+\setleadsheets{
+  title-template = minlouvor
+}
+
+\definesongtitletemplate{minlouvor}{
+  \pagestyle{empty}
+  \section{\songproperty{title}}
+  \ifsongproperty{interpret}
+      {\subsection{\songproperty{interpret}}}
+      {}
+
+  \hfill
+  \begin{minipage}{5cm}
+      \begin{center}
+          {\small
+          \color{gray}
+          Tom: \songproperty{key} \\
+          \ifsongproperty{tempo}
+          {Andamento: \songproperty{tempo}\, \compasso}
+          {}%
+          }
+      \end{center}
+  \end{minipage}
+  
+  \vspace{.3cm}
+  
+  \makesequence
+  }
+
+
+\defineversetypetemplate{introducao}
+  {\descriptionBoxTwo[\versename]{I}
+          \ifobeylines
+              {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+              {\vspace*{-\parskip}}%
+  }
+  {\enddescriptionBoxTwo}
+
+\defineversetypetemplate{verso}
+    {\descriptionBox[\versename]{V}
+            \ifobeylines
+                {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+                {\vspace*{-\parskip}}%
+    }
+    {\enddescriptionBox}  
+
+\defineversetypetemplate{versoDois}
+  {\descriptionBox[\versename]{V2}
+          \ifobeylines
+              {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+              {\vspace*{-\parskip}}%
+  }
+  {\enddescriptionBox}  
+
+\defineversetypetemplate{versoTres}
+  {\descriptionBox[\versename]{V3}
+          \ifobeylines
+              {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+              {\vspace*{-\parskip}}%
+  }
+  {\enddescriptionBox}
+
+\defineversetypetemplate{preRefrao}
+  {\descriptionBox[\versename]{Pr}
+          \ifobeylines
+              {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+              {\vspace*{-\parskip}}%
+  }
+  {\enddescriptionBox}
+
+\defineversetypetemplate{refrao}
+  {\descriptionBox[\versename]{R}
+          \ifobeylines
+              {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+              {\vspace*{-\parskip}}%
+  }
+  {\enddescriptionBox}
+
+\defineversetypetemplate{refraoDois}
+  {\descriptionBox[\versename]{R2}
+          \ifobeylines
+              {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+              {\vspace*{-\parskip}}%
+  }
+  {\enddescriptionBox}
+
+\defineversetypetemplate{refraoTres}
+  {\descriptionBox[\versename]{R3}
+          \ifobeylines
+              {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+              {\vspace*{-\parskip}}%
+  }
+  {\enddescriptionBox}
+
+\defineversetypetemplate{preRefrao}
+  {\descriptionBoxTwo[\versename]{Pr}
+          \ifobeylines
+              {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+              {\vspace*{-\parskip}}%
+  }
+  {\enddescriptionBoxTwo}
+
+\defineversetypetemplate{preRefraoDois}
+  {\descriptionBoxTwo[\versename]{Pr2}
+          \ifobeylines
+              {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+              {\vspace*{-\parskip}}%
+  }
+  {\enddescriptionBoxTwo}
+
+\defineversetypetemplate{ponte}
+  {\descriptionBox[\versename]{P}
+          \ifobeylines
+              {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+              {\vspace*{-\parskip}}%
+  }
+  {\enddescriptionBox}
+
+\defineversetypetemplate{interludio}
+  {\descriptionBoxTwo[\versename]{It}
+          \ifobeylines
+              {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+              {\vspace*{-\parskip}}%
+  }
+  {\enddescriptionBoxTwo}
+
+\defineversetypetemplate{instrumental}
+  {\descriptionBoxTwo[\versename]{In}
+          \ifobeylines
+              {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+              {\vspace*{-\parskip}}%
+  }
+  {\enddescriptionBoxTwo}
+
+\defineversetypetemplate{instrumentalDois}
+  {\descriptionBoxTwo[\versename]{In2}
+          \ifobeylines
+              {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+              {\vspace*{-\parskip}}%
+  }
+  {\enddescriptionBoxTwo}
+
+\defineversetypetemplate{instrumentalTres}
+  {\descriptionBoxTwo[\versename]{In3}
+          \ifobeylines
+              {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+              {\vspace*{-\parskip}}%
+  }
+  {\enddescriptionBoxTwo}
+
+\defineversetypetemplate{fim}
+  {\descriptionBox[\versename]{F}
+          \ifobeylines
+              {\setleadsheets{obey-lines-parskip=\parskip }\setlength\parskip{0pt}}
+              {\vspace*{-\parskip}}%
+  }
+  {\enddescriptionBox}
+
+\newversetype{introducao}[
+  name={Introdução},
+  after-label=\noindent,
+  template=introducao
+  ]
+\newversetype{verso}[
+  name={Verso},
+  after-label=\noindent,
+  template=verso
+  ]
+\newversetype{versoDois}[
+  name={Verso 2},
+  after-label=\noindent,
+  template=versoDois
+  ]
+\newversetype{versoTres}[
+  name={Verso 3},
+  after-label=\noindent,
+  template=versoTres
+  ]
+
+\newversetype{preRefrao}[
+  name={Pré Refrão},
+  after-label=\noindent,
+  template=preRefrao
+  ]
+
+\newversetype{preRefraoDois}[
+  name={Pré Refrão 2},
+  after-label=\noindent,
+  template=preRefraoDois
+  ]
+
+\newversetype{refrao}[
+  name=Refrão,
+  after-label=\noindent,
+  template=refrao
+  ]
+
+\newversetype{refraoDois}[
+  name={Refrão 2},
+  after-label=\noindent,
+  template=refraoDois
+  ]
+   
+\newversetype{refraoTres}[
+  name={Refrão 3},
+  after-label=\noindent,
+  template=refraoTres
+  ]
+
+\newversetype{ponte}[
+  name=Ponte,
+  after-label=\noindent,
+  template=ponte
+  ]
+
+\newversetype{interludio}[
+  name=Interlúdio,
+  after-label=\noindent,
+  template=interludio
+  ]
+
+\newversetype{fim}[
+  name=Fim,
+  after-label=\noindent,
+  template=fim
+  ]
+
+\newversetype{instrumental}[
+  name=Instrumental,
+  after-label=\noindent,
+  template=instrumental
+  ]
+
+\newversetype{instrumentalDois}[
+  name={Instrumental 2},
+  after-label=\noindent,
+  template=instrumentalDois
+  ]
+    
+\newversetype{instrumentalTres}[
+  name={Instrumental 3},
+  after-label=\noindent,
+  template=instrumentalTres
+  ]
+
 % configurar página
 \usepackage[bottom=1cm,top=1cm,left=1cm,right=1cm]{geometry}
 
@@ -33,9 +278,9 @@
 \usepackage{pgf}
 \usepackage{varwidth}
 
-\def \ifempty#1{\def\temp{#1} \ifx\temp\empty }
+\newcommand\ifempty[1]{\def\temp{#1} \ifx\temp\empty }
 
-\def \mymacro#1{\ifempty{#1} \else \node[circle,
+\newcommand\mymacro[1]{\ifempty{#1} \else \node[circle,
 fill=white,
 inner sep=0pt,
 draw=black,
@@ -72,7 +317,7 @@ font=\sffamily\bfseries
   \end{tikzpicture}
   }
 
-\newtcolorbox{descriptionBox}[2][]{
+  \newtcolorbox{descriptionBox}[2][]{
     colback=white,
     colframe=black!35!white,
     fonttitle=\bfseries,
@@ -84,122 +329,66 @@ font=\sffamily\bfseries
     opacitybacktitle=0,
     center title,
     varwidth boxed title*=-4cm,
-    % tikznode boxed title,
-    % minipage boxed title*=-7cm,
-    boxed title style = {%width=3cm,
+    boxed title style = {
     colback=white,
     halign=center,valign=center,
-    % colframe=white!100!black,
-     boxrule=0mm,
-     colframe=white,
-    %  borderline={0.5mm}{0mm}{white!100!black},
+    boxrule=0mm,
+    colframe=white,
     },
     attach boxed title to top left={yshift=-5.mm, xshift=2mm, yshifttext=-4mm},
-    title={
-      
-      \begin{tikzpicture}
-        \node[circle,
-         fill=black,
-         draw=black,
-         inner sep=0pt,
-         minimum size=.6cm,
-         baseline = (current bounding box.center), %anchor = north,
-         ultra thick,
-         align=center,
-         text=white,
-         text width=.45cm,
-        %  text height = .45cm,
-         label=right:{\color{black}{#1}},
-         font=\sffamily\bfseries
-         ] (0,0) {\scriptsize#2};
-    \end{tikzpicture}} }
-
-
-    \newcommand{\makepage}{
-      \pagestyle{empty}
-      \section{\href{\link}{\music}}
-      \ifempty{\autor} 
-      \else 
-        \subsection{
-          \autor 
-        } 
-      \fi
-      
-      
-      \hfill
-      \begin{minipage}{5cm}
-          \begin{center}
-            {\small
-              \color{gray}
-              Tom: \tom \\
-              Andamento: \bpm\, \compasso}
-          \end{center}
-      \end{minipage}
-      
-      \vspace{.3cm}
+    title={      
+        \begin{tikzpicture}
+            \node[circle,
+            fill=black,
+            draw=black,
+            inner sep=0pt,
+            minimum size=.6cm,
+            baseline = (current bounding box.center),
+            ultra thick,
+            align=center,
+            text=white,
+            text width=.45cm,
+            label={[xshift=1.0cm, yshift=-0.6cm]:{\color{black}{#1}}},
+            font=\sffamily\bfseries
+            ] (0,0) {\scriptsize #2};
+        \end{tikzpicture}
+        }
     }
 
-    \newcommand{\makedescription}{
-        \begin{multicols}{2}
-            \ifthenelse{\equal{\introducao}{}}{}{
-            \begin{descriptionBox}[Introdução]{I}
-                \introducao
-            \end{descriptionBox}}
-            
-            \ifthenelse{\equal{\versoOne}{}}{}{
-            \begin{descriptionBox}[Verso]{V}
-              \versoOne
-            \end{descriptionBox}}
-
-            \ifthenelse{\equal{\versoTwo}{}}{}{
-            \begin{descriptionBox}[Verso 2]{V2}
-              \versoTwo
-            \end{descriptionBox}}
-
-            \ifthenelse{\equal{\versoThree}{}}{}{
-            \begin{descriptionBox}[Verso 3]{V3}
-              \versoThree
-            \end{descriptionBox}}
-        
-            \ifthenelse{\equal{\refraoOne}{}}{}{
-            \begin{descriptionBox}[Refrão]{R}
-              \refraoOne
-            \end{descriptionBox}}
-
-            \ifthenelse{\equal{\refraoTwo}{}}{}{
-            \begin{descriptionBox}[Refrão 2]{R2}
-              \refraoTwo
-            \end{descriptionBox}}
-        
-            \ifthenelse{\equal{\refraoThree}{}}{}{
-            \begin{descriptionBox}[Refrão 3]{R3}
-              \refraoThree
-            \end{descriptionBox}}
-
-            \ifthenelse{\equal{\ponte}{}}{}{
-            \begin{descriptionBox}[Ponte]{P}
-              \ponte
-            \end{descriptionBox}}
-
-            \ifthenelse{\equal{\instrumentalOne}{}}{}{
-            \begin{descriptionBox}[Instrumental]{It}
-              \instrumentalOne
-            \end{descriptionBox}}
-            
-            \ifthenelse{\equal{\instrumentalTwo}{}}{}{
-            \begin{descriptionBox}[Instrumental 2]{It2}
-              \instrumentalTwo
-            \end{descriptionBox}}
-
-            \ifthenelse{\equal{\instrumentalThree}{}}{}{
-            \begin{descriptionBox}[Instrumental 3]{It3}
-              \instrumentalThree
-            \end{descriptionBox}}
-
-            \ifthenelse{\equal{\fim}{}}{}{
-            \begin{descriptionBox}[Fim]{F}
-              \fim
-            \end{descriptionBox}}
-        \end{multicols}
-
-    }
+    \newtcolorbox{descriptionBoxTwo}[2][]{
+      colback=white,
+      colframe=black!35!white,
+      fonttitle=\bfseries,
+      enhanced jigsaw,
+      vfill before first, 
+      pad at break=1mm,
+      breakable,
+      opacityback=1,
+      opacitybacktitle=0,
+      center title,
+      varwidth boxed title*=-4cm,
+      boxed title style = {
+      colback=white,
+      halign=center,valign=center,
+      boxrule=0mm,
+      colframe=white,
+      },
+      attach boxed title to top left={yshift=-5.mm, xshift=2mm, yshifttext=-4mm},
+      title={      
+          \begin{tikzpicture}
+              \node[circle,
+              fill=black,
+              draw=black,
+              inner sep=0pt,
+              minimum size=.6cm,
+              baseline = (current bounding box.center),
+              ultra thick,
+              align=center,
+              text=white,
+              text width=.45cm,
+              label={[xshift=1.5cm, yshift=-0.65cm]:{\color{black}{#1}}},
+              font=\sffamily\bfseries
+              ] (0,0) {\scriptsize #2};
+          \end{tikzpicture}
+          }
+      }
