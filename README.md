@@ -5,3 +5,7 @@ This project consists of a Latex document pattern for music mapping. It follows 
 - <b>Version 1.0</b>
 
   Initial commit.
+  
+- <b>Version 1.1</b>
+
+  New Environment for write songs.
