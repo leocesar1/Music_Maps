@@ -1,6 +1,7 @@
 \usepackage[brazil]{babel}
 % \usepackage[sfdefault]{GoSans}
 \usepackage[sfdefault,condensed]{cabin}
+\usepackage{enumitem}
 % \usepackage[T1]{fontenc}
 
 % \usepackage[hidelinks]{hyperref}
@@ -391,4 +392,20 @@ font=\sffamily\bfseries
               ] (0,0) {\scriptsize #2};
           \end{tikzpicture}
           }
+      }
+
+      \newenvironment{anotation}[1]
+      {\color{gray}\itemize[
+         nosep,
+         leftmargin=\dimexpr\textwidth-#1\relax,
+         rightmargin=0pt,
+         itemindent=\parindent,
+         listparindent=\parindent,
+       ]\item[]\relax}
+      {\enditemize}
+      
+      \newcommand{\note}[1]{
+         \begin{anotation}{5cm}
+             #1
+         \end{anotation}
       }

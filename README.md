@@ -9,3 +9,7 @@ This project consists of a Latex document pattern for music mapping. It follows 
 - <b>Version 1.1</b>
 
   New environment for write songs.
+
+- <b>Version 1.2</b>
+
+  Add notes in environments.
